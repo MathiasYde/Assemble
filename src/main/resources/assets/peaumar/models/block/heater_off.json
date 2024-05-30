@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "peaumar:block/heater_front_off",
+    "side": "peaumar:block/heater_side",
+    "top": "peaumar:block/heater_top",
+    "bottom": "peaumar:block/heater_bottom"
+  }
+}

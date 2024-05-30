@@ -2,6 +2,7 @@ package com.example.PeaumarMod;
 
 import com.example.PeaumarMod.Blocks.HeaterBlock;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
