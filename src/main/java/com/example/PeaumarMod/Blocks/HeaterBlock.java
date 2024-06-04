@@ -31,23 +31,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-enum LitState implements StringRepresentable {
-    OFF("off"),
-    FIRE("fire"),
-    SOUL("soul");
-
-    private final String name;
-
-    LitState(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String getSerializedName() {
-        return this.name;
-    }
-}
-
 public class HeaterBlock extends Block implements EntityBlock {
     public static final String NAME = "heater";
 
