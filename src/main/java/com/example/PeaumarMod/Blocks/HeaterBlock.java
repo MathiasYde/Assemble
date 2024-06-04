@@ -8,11 +8,10 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -28,7 +27,6 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class HeaterBlock extends Block implements EntityBlock {
@@ -53,18 +51,14 @@ public class HeaterBlock extends Block implements EntityBlock {
     }
 
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        // TODO(mathias): this should probably be more sophisticated
-        // TODO like holding shift to input the entire stack?
-
-        int burnTime = Utils.getBurnTime(stack.getItem());
-        if (burnTime <= 0) {
-            return ItemInteractionResult.FAIL;
-        }
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        Item item = player.getItemInHand(hand).getItem();
+        int fuelTime = Utils.getBurnTime(item);
+        if (fuelTime <= 0) { return InteractionResult.FAIL; }
 
         if (level.isClientSide) {
             level.playLocalSound(
-                    pos,
+                    pos.getX(), pos.getY(), pos.getZ(),
                     SoundEvents.FIRECHARGE_USE,
                     SoundSource.BLOCKS,
                     0.4f, 1.0f, false
@@ -74,19 +68,19 @@ public class HeaterBlock extends Block implements EntityBlock {
         if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof HeaterBlockEntity heaterBlockEntity) {
-                heaterBlockEntity.addFuel(burnTime);
+                heaterBlockEntity.addFuel(fuelTime);
                 level.setBlockAndUpdate(pos, state.setValue(LIT_STATE_PROPERTY, LitState.FIRE));
 
                 // consume the item from the players inventory
                 if (!player.isCreative()) {
-                    stack.shrink(1);
+                    player.getItemInHand(hand).shrink(1);
                 }
 
-                return ItemInteractionResult.CONSUME_PARTIAL;
+                return InteractionResult.CONSUME;
             }
         }
 
-        return ItemInteractionResult.FAIL;
+        return InteractionResult.PASS;
     }
 
     @Override

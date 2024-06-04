@@ -41,14 +41,14 @@ public class HeaterBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider provider) {
-        super.saveAdditional(tag, provider);
+    public void saveAdditional(@NotNull CompoundTag tag) {
+        super.saveAdditional(tag);
         tag.putInt("fuel", this.fuel);
     }
 
     @Override
-    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider provider) {
-        super.loadAdditional(tag, provider);
+    public void load(@NotNull CompoundTag tag) {
+        super.load(tag);
         this.fuel = tag.getInt("fuel");
     }
 }
