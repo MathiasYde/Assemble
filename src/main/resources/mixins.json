@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.example.PeaumarMod.mixin",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "FurnaceHeaterMixin$AbstractFurnaceBlockEntityMixin",
+    "FurnaceHeaterMixin$FurnaceBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
