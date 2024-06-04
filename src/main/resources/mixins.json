@@ -3,8 +3,7 @@
   "package": "com.example.PeaumarMod.mixin",
   "compatibilityLevel": "JAVA_18",
   "mixins": [
-    "FurnaceHeaterMixin$AbstractFurnaceBlockEntityMixin",
-    "FurnaceHeaterMixin$FurnaceBlockMixin"
+    "FurnaceHeaterMixin$AbstractFurnaceBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
