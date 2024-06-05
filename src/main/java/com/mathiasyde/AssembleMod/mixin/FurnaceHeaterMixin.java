@@ -1,7 +1,7 @@
-package com.example.PeaumarMod.mixin;
+package com.mathiasyde.AssembleMod.mixin;
 
-import com.example.PeaumarMod.Blocks.HeaterBlock;
-import com.example.PeaumarMod.Blocks.LitState;
+import com.mathiasyde.AssembleMod.Blocks.HeaterBlock;
+import com.mathiasyde.AssembleMod.Blocks.LitState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;

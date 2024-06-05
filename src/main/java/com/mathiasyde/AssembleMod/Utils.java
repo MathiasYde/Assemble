@@ -1,4 +1,4 @@
-package com.example.PeaumarMod;
+package com.mathiasyde.AssembleMod;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "assemble:block/heater_front_fire",
+    "side": "assemble:block/heater_side",
+    "top": "assemble:block/heater_top",
+    "bottom": "assemble:block/heater_bottom"
+  }
+}

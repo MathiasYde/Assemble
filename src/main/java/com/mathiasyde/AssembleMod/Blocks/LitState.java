@@ -1,4 +1,4 @@
-package com.example.PeaumarMod.Blocks;
+package com.mathiasyde.AssembleMod.Blocks;
 
 import net.minecraft.util.StringRepresentable;
 

@@ -1,7 +1,7 @@
-package com.example.PeaumarMod.Blocks;
+package com.mathiasyde.AssembleMod.Blocks;
 
-import com.example.PeaumarMod.PeaumarMod;
-import com.example.PeaumarMod.Utils;
+import com.mathiasyde.AssembleMod.AssembleMod;
+import com.mathiasyde.AssembleMod.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -121,6 +121,6 @@ public class HeaterBlock extends Block implements EntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == PeaumarMod.HEATER_BLOCK_ENTITY.get() ? HeaterBlockEntity::tick : null;
+        return type == AssembleMod.HEATER_BLOCK_ENTITY.get() ? HeaterBlockEntity::tick : null;
     }
 }

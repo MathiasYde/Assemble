@@ -1,8 +1,7 @@
-package com.example.PeaumarMod.Blocks;
+package com.mathiasyde.AssembleMod.Blocks;
 
-import com.example.PeaumarMod.PeaumarMod;
+import com.mathiasyde.AssembleMod.AssembleMod;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -13,7 +12,7 @@ public class HeaterBlockEntity extends BlockEntity {
     private int fuel;
 
     public HeaterBlockEntity(BlockPos pos, BlockState state) {
-        super(PeaumarMod.HEATER_BLOCK_ENTITY.get(), pos, state);
+        super(AssembleMod.HEATER_BLOCK_ENTITY.get(), pos, state);
         this.fuel = 0;
     }
 

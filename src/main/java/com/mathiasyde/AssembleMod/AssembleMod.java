@@ -1,9 +1,8 @@
-package com.example.PeaumarMod;
+package com.mathiasyde.AssembleMod;
 
-import com.example.PeaumarMod.Blocks.HeaterBlock;
-import com.example.PeaumarMod.Blocks.HeaterBlockEntity;
+import com.mathiasyde.AssembleMod.Blocks.HeaterBlock;
+import com.mathiasyde.AssembleMod.Blocks.HeaterBlockEntity;
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -22,9 +21,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
-@Mod(PeaumarMod.MODID)
-public class PeaumarMod {
-    public static final String MODID = "peaumar";
+@Mod(AssembleMod.MODID)
+public class AssembleMod {
+    public static final String MODID = "assemble";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public static final DeferredRegister<Block> BlockRegistry = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
@@ -44,7 +43,7 @@ public class PeaumarMod {
                 output.accept(HEATER_BLOCK_ITEM.get());
             }).build());
 
-    public PeaumarMod() {
+    public AssembleMod() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         BlockRegistry.register(eventBus);

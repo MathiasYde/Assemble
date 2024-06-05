@@ -1,51 +1,51 @@
 {
   "variants": {
     "facing=north,lit=off": {
-      "model": "peaumar:block/heater_off",
+      "model": "assemble:block/heater_off",
       "y": 0
     },
     "facing=east,lit=off": {
-      "model": "peaumar:block/heater_off",
+      "model": "assemble:block/heater_off",
       "y": 90
     },
     "facing=south,lit=off": {
-      "model": "peaumar:block/heater_off",
+      "model": "assemble:block/heater_off",
       "y": 180
     },
     "facing=west,lit=off": {
-      "model": "peaumar:block/heater_off",
+      "model": "assemble:block/heater_off",
       "y": 270
     },
     "facing=north,lit=fire": {
-      "model": "peaumar:block/heater_fire",
+      "model": "assemble:block/heater_fire",
       "y": 0
     },
     "facing=east,lit=fire": {
-      "model": "peaumar:block/heater_fire",
+      "model": "assemble:block/heater_fire",
       "y": 90
     },
     "facing=south,lit=fire": {
-      "model": "peaumar:block/heater_fire",
+      "model": "assemble:block/heater_fire",
       "y": 180
     },
     "facing=west,lit=fire": {
-      "model": "peaumar:block/heater_fire",
+      "model": "assemble:block/heater_fire",
       "y": 270
     },
     "facing=north,lit=soul": {
-      "model": "peaumar:block/heater_soul",
+      "model": "assemble:block/heater_soul",
       "y": 0
     },
     "facing=east,lit=soul": {
-      "model": "peaumar:block/heater_soul",
+      "model": "assemble:block/heater_soul",
       "y": 90
     },
     "facing=south,lit=soul": {
-      "model": "peaumar:block/heater_soul",
+      "model": "assemble:block/heater_soul",
       "y": 180
     },
     "facing=west,lit=soul": {
-      "model": "peaumar:block/heater_soul",
+      "model": "assemble:block/heater_soul",
       "y": 270
     }
   }
