@@ -1,3 +1,6 @@
 {
-  "block.assemble.heater": "Heater"
+  "block.assemble.heater": "Heater",
+  "block.assemble.bronze_block": "Bronze Block",
+  "item.assemble.bronze_nugget": "Bronze Nugget",
+  "item.assemble.bronze_ingot": "Bronze Ingot"
 }
