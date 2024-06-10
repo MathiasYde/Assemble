@@ -2,7 +2,6 @@ package com.mathiasyde.AssembleMod.Blocks;
 
 import com.mathiasyde.AssembleMod.AssembleMod;
 import com.mathiasyde.AssembleMod.Datamodels.LitState;
-import com.mathiasyde.AssembleMod.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -12,8 +11,9 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.common.ForgeHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class HeaterBlock extends Block implements EntityBlock {
@@ -53,8 +54,9 @@ public class HeaterBlock extends Block implements EntityBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        Item item = player.getItemInHand(hand).getItem();
-        int fuelTime = Utils.getBurnTime(item);
+        ItemStack stack = player.getItemInHand(hand);
+
+        int fuelTime = ForgeHooks.getBurnTime(stack, RecipeType.SMELTING);
         if (fuelTime <= 0) { return InteractionResult.FAIL; }
 
         if (level.isClientSide) {
@@ -74,7 +76,7 @@ public class HeaterBlock extends Block implements EntityBlock {
 
                 // consume the item from the players inventory
                 if (!player.isCreative()) {
-                    player.getItemInHand(hand).shrink(1);
+                    stack.shrink(1);
                 }
 
                 return InteractionResult.CONSUME;
