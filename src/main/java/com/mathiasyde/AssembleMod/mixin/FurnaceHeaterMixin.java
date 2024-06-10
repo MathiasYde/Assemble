@@ -19,7 +19,6 @@ public class FurnaceHeaterMixin {
             int ticks = info.getReturnValue();
 
             BlockState blockStateBelow = level.getBlockState(entity.getBlockPos().below());
-            System.out.println("Got BlockState: " + blockStateBelow.getBlock());
             if (blockStateBelow.getBlock() instanceof HeaterBlock heaterBlock) {
                 LitState litState = blockStateBelow.getValue(HeaterBlock.LIT_STATE_PROPERTY);
 
