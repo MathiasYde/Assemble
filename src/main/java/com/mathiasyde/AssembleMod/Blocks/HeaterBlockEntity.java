@@ -1,6 +1,7 @@
 package com.mathiasyde.AssembleMod.Blocks;
 
 import com.mathiasyde.AssembleMod.AssembleMod;
+import com.mathiasyde.AssembleMod.Datamodels.LitState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;

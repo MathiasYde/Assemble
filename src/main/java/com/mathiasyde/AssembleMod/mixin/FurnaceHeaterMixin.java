@@ -1,11 +1,11 @@
 package com.mathiasyde.AssembleMod.mixin;
 
 import com.mathiasyde.AssembleMod.Blocks.HeaterBlock;
-import com.mathiasyde.AssembleMod.Blocks.LitState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeManager;
+import com.mathiasyde.AssembleMod.Datamodels.LitState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FurnaceBlock;

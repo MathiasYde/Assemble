@@ -1,4 +1,4 @@
-package com.mathiasyde.AssembleMod.Blocks;
+package com.mathiasyde.AssembleMod.Datamodels;
 
 import net.minecraft.util.StringRepresentable;
 
