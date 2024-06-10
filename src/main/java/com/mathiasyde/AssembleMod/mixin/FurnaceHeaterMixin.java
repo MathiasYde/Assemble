@@ -22,24 +22,12 @@ public class FurnaceHeaterMixin {
             System.out.println("Got BlockState: " + blockStateBelow.getBlock());
             if (blockStateBelow.getBlock() instanceof HeaterBlock heaterBlock) {
                 LitState litState = blockStateBelow.getValue(HeaterBlock.LIT_STATE_PROPERTY);
-                System.out.println("Got LitState: " + litState);
 
-                System.out.println("Ticks before: " + ticks);
-                // this was bad :(
-//                ticks = switch (litState) {
-//                    case OFF -> ticks;
-//                    case FIRE -> ticks / 2;
-//                    case SOUL -> ticks / 4;
-//                };
-
-                // this is fine ??
                 if (litState == LitState.FIRE) {
                     ticks = ticks / 2;
                 } else if (litState == LitState.SOUL) {
                     ticks = ticks / 4;
                 }
-
-                System.out.println("Ticks after: " + ticks);
             }
 
             info.setReturnValue(ticks);
