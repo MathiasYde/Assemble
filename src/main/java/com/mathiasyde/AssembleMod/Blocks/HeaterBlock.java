@@ -38,7 +38,7 @@ public class HeaterBlock extends Block implements EntityBlock {
     public static final EnumProperty<LitState> LIT_STATE_PROPERTY = EnumProperty.create("lit", LitState.class);
 
     public HeaterBlock() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+        super(BlockBehaviour.Properties.of());
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING_PROPERTY, Direction.NORTH));    }
 
     @Override
