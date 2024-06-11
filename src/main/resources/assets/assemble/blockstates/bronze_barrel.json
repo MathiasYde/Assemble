@@ -1,7 +1,27 @@
 {
   "variants": {
-    "": {
+    "facing=down": {
+      "model": "assemble:block/bronze_barrel",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "assemble:block/bronze_barrel",
+      "x": 90, "y": 90
+    },
+    "facing=north": {
+      "model": "assemble:block/bronze_barrel",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "assemble:block/bronze_barrel",
+      "x": 90, "y": 180
+    },
+    "facing=up": {
       "model": "assemble:block/bronze_barrel"
+    },
+    "facing=west": {
+      "model": "assemble:block/bronze_barrel",
+      "x": 90, "y": 270
     }
   }
 }
