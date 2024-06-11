@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "assemble:block/bronze_barrel_side",
+    "top": "assemble:block/bronze_barrel",
+    "bottom": "assemble:block/bronze_barrel"
+  }
+}
