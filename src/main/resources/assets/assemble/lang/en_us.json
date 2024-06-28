@@ -3,5 +3,6 @@
   "block.assemble.bronze_block": "Bronze Block",
   "block.assemble.bronze_barrel": "Bronze Barrel",
   "item.assemble.bronze_nugget": "Bronze Nugget",
-  "item.assemble.bronze_ingot": "Bronze Ingot"
+  "item.assemble.bronze_ingot": "Bronze Ingot",
+  "block.assemble.bronze_cauldron": "Bronze Cauldron"
 }
