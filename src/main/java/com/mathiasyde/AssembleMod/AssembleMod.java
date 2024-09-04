@@ -34,16 +34,16 @@ public class AssembleMod {
 
     public static final RegistryObject<Block> HEATER_BLOCK = BlockRegistry.register(HeaterBlock.NAME, HeaterBlock::new);
     public static final RegistryObject<Block> BRONZE_BLOCK = BlockRegistry.register("bronze_block", () -> new Block(BlockBehaviour.Properties.of()));
-    public static final RegistryObject<Block> BRONZE_BARREL = BlockRegistry.register("bronze_barrel", BronzeBarrel::new);
+    public static final RegistryObject<Block> FLUID_VESSEL = BlockRegistry.register("fluid_vessel", FluidVessel::new);
     public static final RegistryObject<Block> BRONZE_CAULDRON_BLOCK = BlockRegistry.register(BronzeCauldronBlock.NAME, BronzeCauldronBlock::new);
 
 
     public static final RegistryObject<BlockEntityType<HeaterBlockEntity>> HEATER_BLOCK_ENTITY = BlockEntityTypesRegistry.register(HeaterBlock.NAME, () -> BlockEntityType.Builder.of(HeaterBlockEntity::new, HEATER_BLOCK.get()).build(null));
     public static final RegistryObject<BlockEntityType<BronzeCauldronBlockEntity>> BRONZE_CAULDRON_BLOCK_ENTITY = BlockEntityTypesRegistry.register(BronzeCauldronBlock.NAME, () -> BlockEntityType.Builder.of(BronzeCauldronBlockEntity::new, BRONZE_CAULDRON_BLOCK.get()).build(null));
-    public static final RegistryObject<BlockEntityType<BronzeBarrelBlockEntity>> BRONZE_BARREL_BLOCK_ENTITY = BlockEntityTypesRegistry.register(BronzeBarrel.NAME, () -> BlockEntityType.Builder.of(BronzeBarrelBlockEntity::new, BRONZE_BARREL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<FluidVesselBlockEntity>> BRONZE_BARREL_BLOCK_ENTITY = BlockEntityTypesRegistry.register(FluidVessel.NAME, () -> BlockEntityType.Builder.of(FluidVesselBlockEntity::new, FLUID_VESSEL.get()).build(null));
     public static final RegistryObject<Item> HEATER_BLOCK_ITEM = ItemRegistry.register(HeaterBlock.NAME, () -> new BlockItem(HEATER_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> BRONZE_BLOCK_ITEM = ItemRegistry.register("bronze_block", () -> new BlockItem(BRONZE_BLOCK.get(), new Item.Properties()));
-    public static final RegistryObject<Item> BRONZE_BARREL_ITEM = ItemRegistry.register("bronze_barrel", () -> new BlockItem(BRONZE_BARREL.get(), new Item.Properties()));
+    public static final RegistryObject<Item> BRONZE_BARREL_ITEM = ItemRegistry.register("fluid_vessel", () -> new BlockItem(FLUID_VESSEL.get(), new Item.Properties()));
     public static final RegistryObject<Item> BRONZE_CAULDRON_ITEM = ItemRegistry.register(BronzeCauldronBlock.NAME, () -> new BlockItem(BRONZE_CAULDRON_BLOCK.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> BRONZE_INGOT_ITEM = ItemRegistry.register("bronze_ingot", () -> new Item(new Item.Properties()));

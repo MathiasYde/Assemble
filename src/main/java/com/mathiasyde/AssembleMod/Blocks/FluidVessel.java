@@ -26,12 +26,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-public class BronzeBarrel extends Block implements EntityBlock {
+public class FluidVessel extends Block implements EntityBlock {
     public static final String NAME = "bronze_barrel";
 
     public final static DirectionProperty FACING_PROPERTY = BlockStateProperties.FACING;
 
-    public BronzeBarrel() {
+    public FluidVessel() {
         super(BlockBehaviour.Properties.of());
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING_PROPERTY, Direction.UP));
     }
@@ -43,10 +43,10 @@ public class BronzeBarrel extends Block implements EntityBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        System.out.println("BronzeBarrel.use");
+        System.out.println("FluidVessel.use");
         System.out.println("state = " + state + ", level = " + level + ", pos = " + pos + ", player = " + player + ", hand = " + hand + ", hit = " + hit);
 
-        if (level.isClientSide == false && (level.getBlockEntity(pos) instanceof BronzeBarrelBlockEntity entity)) {
+        if (level.isClientSide == false && (level.getBlockEntity(pos) instanceof FluidVesselBlockEntity entity)) {
             ItemStack itemStack = player.getItemInHand(hand);
             System.out.println("itemStack = " + itemStack);
 
@@ -106,12 +106,12 @@ public class BronzeBarrel extends Block implements EntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new BronzeBarrelBlockEntity(pos, state);
+        return new FluidVesselBlockEntity(pos, state);
     }
 
 //    @Nullable
 //    @Override
 //    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-//        return level.isClientSide ? null : type == AssembleMod.BRONZE_BARREL_BLOCK_ENTITY.get() ? BronzeBarrelBlockEntity::tick : null;
+//        return level.isClientSide ? null : type == AssembleMod.BRONZE_BARREL_BLOCK_ENTITY.get() ? FluidVesselBlockEntity::tick : null;
 //    }
 }

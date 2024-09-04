@@ -16,11 +16,11 @@ import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class BronzeBarrelBlockEntity extends BlockEntity {
+public class FluidVesselBlockEntity extends BlockEntity {
     private final FluidTank fluidTank = new FluidTank(8000) {
         @Override
         protected void onContentsChanged() {
-            System.out.println("BronzeBarrelBlockEntity.fluidTank.onContentsChanged");
+            System.out.println("FluidVesselBlockEntity.fluidTank.onContentsChanged");
             System.out.println("fluidTank.getFluidAmount() = " + fluidTank.getFluidAmount());
             setChanged();
         }
@@ -31,7 +31,7 @@ public class BronzeBarrelBlockEntity extends BlockEntity {
         }
     };
 
-    public BronzeBarrelBlockEntity(BlockPos pos, BlockState state) {
+    public FluidVesselBlockEntity(BlockPos pos, BlockState state) {
         super(AssembleMod.BRONZE_BARREL_BLOCK_ENTITY.get(), pos, state);
     }
 
