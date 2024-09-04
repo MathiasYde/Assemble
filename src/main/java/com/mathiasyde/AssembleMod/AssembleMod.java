@@ -40,6 +40,7 @@ public class AssembleMod {
 
     public static final RegistryObject<BlockEntityType<HeaterBlockEntity>> HEATER_BLOCK_ENTITY = BlockEntityTypesRegistry.register(HeaterBlock.NAME, () -> BlockEntityType.Builder.of(HeaterBlockEntity::new, HEATER_BLOCK.get()).build(null));
     public static final RegistryObject<BlockEntityType<BronzeCauldronBlockEntity>> BRONZE_CAULDRON_BLOCK_ENTITY = BlockEntityTypesRegistry.register(BronzeCauldronBlock.NAME, () -> BlockEntityType.Builder.of(BronzeCauldronBlockEntity::new, BRONZE_CAULDRON_BLOCK.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BronzeBarrelBlockEntity>> BRONZE_BARREL_BLOCK_ENTITY = BlockEntityTypesRegistry.register(BronzeBarrel.NAME, () -> BlockEntityType.Builder.of(BronzeBarrelBlockEntity::new, BRONZE_BARREL.get()).build(null));
     public static final RegistryObject<Item> HEATER_BLOCK_ITEM = ItemRegistry.register(HeaterBlock.NAME, () -> new BlockItem(HEATER_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> BRONZE_BLOCK_ITEM = ItemRegistry.register("bronze_block", () -> new BlockItem(BRONZE_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> BRONZE_BARREL_ITEM = ItemRegistry.register("bronze_barrel", () -> new BlockItem(BRONZE_BARREL.get(), new Item.Properties()));
