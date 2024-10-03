@@ -3,6 +3,9 @@ package com.mathiasyde.AssembleMod.Blocks;
 import com.mathiasyde.AssembleMod.AssembleMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.EntitySelector;
@@ -30,6 +33,9 @@ public class BronzeCauldronBlockEntity extends BlockEntity implements Container 
         if (entity instanceof BronzeCauldronBlockEntity cauldronBlockEntity) {
             List<ItemEntity> itemEntities = getItemsToSuckInFromAbove(level, pos);
             for (ItemEntity itemEntity : itemEntities) {
+                // i don't know why the particle isn't showing up
+                level.addAlwaysVisibleParticle(ParticleTypes.LARGE_SMOKE, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
+                level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
                 HopperBlockEntity.addItem(cauldronBlockEntity, itemEntity);
             }
         }

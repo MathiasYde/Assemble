@@ -51,6 +51,7 @@ public class BronzeCauldronBlock extends Block implements EntityBlock {
     @Override
     public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pParams) {
         List<ItemStack> drops = super.getDrops(pState, pParams);
+        // this seems like a hacky way to get the block to drop its item
         drops.add(new ItemStack(this));
         return drops;
     }
