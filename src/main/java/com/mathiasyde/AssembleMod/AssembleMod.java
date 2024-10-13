@@ -43,7 +43,7 @@ public class AssembleMod {
     public static final RegistryObject<BlockEntityType<FluidVesselBlockEntity>> BRONZE_BARREL_BLOCK_ENTITY = BlockEntityTypesRegistry.register(FluidVessel.NAME, () -> BlockEntityType.Builder.of(FluidVesselBlockEntity::new, FLUID_VESSEL.get()).build(null));
     public static final RegistryObject<Item> HEATER_BLOCK_ITEM = ItemRegistry.register(HeaterBlock.NAME, () -> new BlockItem(HEATER_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> BRONZE_BLOCK_ITEM = ItemRegistry.register("bronze_block", () -> new BlockItem(BRONZE_BLOCK.get(), new Item.Properties()));
-    public static final RegistryObject<Item> BRONZE_BARREL_ITEM = ItemRegistry.register("fluid_vessel", () -> new BlockItem(FLUID_VESSEL.get(), new Item.Properties()));
+    public static final RegistryObject<Item> FLUID_VESSEL_ITEM = ItemRegistry.register("fluid_vessel", () -> new FluidVesselBlockItem(FLUID_VESSEL.get(), new Item.Properties()));
     public static final RegistryObject<Item> BRONZE_CAULDRON_ITEM = ItemRegistry.register(BronzeCauldronBlock.NAME, () -> new BlockItem(BRONZE_CAULDRON_BLOCK.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> BRONZE_INGOT_ITEM = ItemRegistry.register("bronze_ingot", () -> new Item(new Item.Properties()));
@@ -55,7 +55,7 @@ public class AssembleMod {
             .displayItems((parameters, output) -> {
                 output.accept(HEATER_BLOCK_ITEM.get());
                 output.accept(BRONZE_BLOCK_ITEM.get());
-                output.accept(BRONZE_BARREL_ITEM.get());
+                output.accept(FLUID_VESSEL_ITEM.get());
                 output.accept(BRONZE_CAULDRON_ITEM.get());
             }).build());
 
