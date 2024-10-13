@@ -43,6 +43,12 @@ public class FluidVessel extends Block implements EntityBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        // for debug purposes
+        if (player.isCrouching() && level.getBlockEntity(pos) instanceof FluidVesselBlockEntity fluidVesselBlockEntity) {
+            int fluidAmount = fluidVesselBlockEntity.getFluidTank().getFluidAmount();
+            player.displayClientMessage(Component.literal("Fluid Amount = " + fluidAmount + "mB"), true);
+        }
+
         System.out.println("FluidVessel.use");
         System.out.println("state = " + state + ", level = " + level + ", pos = " + pos + ", player = " + player + ", hand = " + hand + ", hit = " + hit);
 
