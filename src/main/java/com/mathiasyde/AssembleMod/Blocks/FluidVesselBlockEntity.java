@@ -12,6 +12,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -35,9 +36,6 @@ public class FluidVesselBlockEntity extends BlockEntity {
         super(AssembleMod.BRONZE_BARREL_BLOCK_ENTITY.get(), pos, state);
     }
 
-    public FluidTank getFluidTank() {
-        return fluidTank;
-    }
 
     private LazyOptional<IFluidHandler> fluidHandler = LazyOptional.empty();
 
@@ -72,5 +70,26 @@ public class FluidVesselBlockEntity extends BlockEntity {
     public void load(CompoundTag pTag) {
         super.load(pTag);
         fluidTank.readFromNBT(pTag);
+    }
+
+    public boolean tryFillFluidTank(@NotNull IFluidHandlerItem itemFluidHandler, int drain) {
+        int availableSpace = fluidTank.getCapacity() - fluidTank.getFluidAmount();
+        if (availableSpace < drain) {
+            return false;
+        }
+
+        if (fluidTank.isFluidValid(
+                itemFluidHandler.drain(drain, IFluidHandler.FluidAction.SIMULATE)
+        )) {
+            FluidStack fluidStack = itemFluidHandler.drain(drain, IFluidHandler.FluidAction.EXECUTE);
+            fluidTank.fill(fluidStack, IFluidHandler.FluidAction.EXECUTE);
+            return true;
+        }
+
+        return false;
+    }
+
+    public int getFluidAmount() {
+        return fluidTank.getFluidAmount();
     }
 }

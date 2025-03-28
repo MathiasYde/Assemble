@@ -31,12 +31,10 @@ public class AssembleMod {
     public static final DeferredRegister<Item> ItemRegistry = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final DeferredRegister<CreativeModeTab> CreativeTabsRegistry = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-
     public static final RegistryObject<Block> HEATER_BLOCK = BlockRegistry.register(HeaterBlock.NAME, HeaterBlock::new);
     public static final RegistryObject<Block> BRONZE_BLOCK = BlockRegistry.register("bronze_block", () -> new Block(BlockBehaviour.Properties.of()));
     public static final RegistryObject<Block> FLUID_VESSEL = BlockRegistry.register("fluid_vessel", FluidVessel::new);
     public static final RegistryObject<Block> BRONZE_CAULDRON_BLOCK = BlockRegistry.register(BronzeCauldronBlock.NAME, BronzeCauldronBlock::new);
-
 
     public static final RegistryObject<BlockEntityType<HeaterBlockEntity>> HEATER_BLOCK_ENTITY = BlockEntityTypesRegistry.register(HeaterBlock.NAME, () -> BlockEntityType.Builder.of(HeaterBlockEntity::new, HEATER_BLOCK.get()).build(null));
     public static final RegistryObject<BlockEntityType<BronzeCauldronBlockEntity>> BRONZE_CAULDRON_BLOCK_ENTITY = BlockEntityTypesRegistry.register(BronzeCauldronBlock.NAME, () -> BlockEntityType.Builder.of(BronzeCauldronBlockEntity::new, BRONZE_CAULDRON_BLOCK.get()).build(null));

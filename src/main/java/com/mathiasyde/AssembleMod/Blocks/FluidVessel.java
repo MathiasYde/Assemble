@@ -2,6 +2,7 @@ package com.mathiasyde.AssembleMod.Blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -45,7 +46,7 @@ public class FluidVessel extends Block implements EntityBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         // for debug purposes
         if (player.isCrouching() && level.getBlockEntity(pos) instanceof FluidVesselBlockEntity fluidVesselBlockEntity) {
-            int fluidAmount = fluidVesselBlockEntity.getFluidTank().getFluidAmount();
+            int fluidAmount = fluidVesselBlockEntity.getFluidAmount();
             player.displayClientMessage(Component.literal("Fluid Amount = " + fluidAmount + "mB"), true);
         }
 
@@ -74,13 +75,8 @@ public class FluidVessel extends Block implements EntityBlock {
 
             itemStack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).ifPresent(itemFluidHandler -> {
                 int drain = 1000;
-                if (entity.getFluidTank().isFluidValid(
-                        itemFluidHandler.drain(drain, IFluidHandler.FluidAction.SIMULATE)
-                )) {
-                    FluidStack fluidStack = itemFluidHandler.drain(drain, IFluidHandler.FluidAction.EXECUTE);
-                    System.out.println("fluidStack = " + fluidStack);
 
-                    entity.getFluidTank().fill(fluidStack, IFluidHandler.FluidAction.EXECUTE);
+                if (entity.tryFillFluidTank(itemFluidHandler, drain)) {
                     interactionResult.set(InteractionResult.SUCCESS);
                 }
             });
